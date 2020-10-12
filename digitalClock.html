@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title> Digital Clock </title>
+        <style>
+            #digital{
+                margin-top: 80;
+                padding: 100;
+                text-align: center;
+                font-size: 150;
+                font-family: Arial, Helvetica, sans-serif;
+                background:cyan;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="digital">
+          
+        </div>
+
+    </body>
+</html>
+<script>
+    setInterval(display, 1000);
+    function display(){
+        var time = new Date();
+        var hours = time.getHours();
+        var mins = time.getMinutes();
+        var secs = time.getSeconds();
+        var mm = 'AM'
+        if(hours > 12){
+            mm = 'PM'
+        }
+        if (hours>12){
+            hours = hours-12;
+        }
+        if (hours==0){
+            hours = 12;
+        }
+        if(hours<10){
+            hours = '0' + hours;
+        }
+        if(mins<10){
+            mins = '0' + mins;
+        }
+        if(secs<10){
+            secs = '0' + secs;
+        }
+
+        document.getElementById("digital").innerHTML = hours + ":" + mins + ":" + secs + "  " + mm;
+
+
+    }
+</script>
+
